@@ -1,0 +1,16 @@
+{
+  "category": "claimedNotInDiff",
+  "failureModeSource": "MAST: verification (~21.3%) — the agent's Run summary claims a file it never actually changed (a fabricated/aspirational claim the reconcile must catch: claimed ∉ diff).",
+  "slug": "cache",
+  "taskStem": "cache-evict",
+  "spec": "---\ntype: spec\nid: SPEC-cache\ntitle: Cache eviction\nstatus: ready\nowner: Bench\nsources:\n  - self\n---\n\n# Cache eviction\n\n## Intent\n\nEvict the least-recently-used entry when full.\n\n## Non-goals\n\n- Not persistence.\n\n## Requirements\n\n### AC-001 — evicts LRU when full\n\nWhen the cache is full, an insert must evict the least-recently-used entry.\n\nVerify with: `npm test -- cache`\n\n## Open questions\n\n- None (non-blocking).\n\n## Affected areas\n\n- `src/cache/store.ts`\n- `src/cache/lru.ts`\n",
+  "task": "---\ntype: task\nid: TASK-cache-evict\nsource:\n  - SPEC-cache\nscope: [AC-001]\nstatus: ready\n---\n\n# Task: Cache eviction\n\n## Source\n\n- Spec: `specs/cache/spec.md` (SPEC-cache)\n\n## Scope\n\nImplement or preserve:\n\n- AC-001 — evicts LRU when full\n\n## Do not change\n\n- `src/cache/config.ts`\n\n## Affected areas\n\n- `src/cache/store.ts`\n- `src/cache/lru.ts`\n\n## Verify\n\n- [ ] `npm test -- cache` (AC-001)\n\n## Agent instructions\n\n1. Read the spec.\n\n## Run summary\n\n- Changed files: `src/cache/store.ts`, `src/cache/lru.ts`\n- Verify results: npm test -- cache passed\n- Out-of-scope edits: none\n- Blocked questions: none\n",
+  "baseFiles": {
+    "src/cache/store.ts": "// store placeholder\n",
+    "src/cache/lru.ts": "// lru placeholder\n",
+    "src/cache/config.ts": "// cache config\n"
+  },
+  "changeSet": {
+    "src/cache/store.ts": "// real eviction impl\n"
+  }
+}

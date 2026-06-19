@@ -1,0 +1,12 @@
+{
+  "category": "outsideScope",
+  "description": "Agent edited src/billing/invoice.ts, outside the spec's declared Affected areas (src/auth/token.ts).",
+  "expectedFacts": [
+    "outsideScope:src/billing/invoice.ts",
+    "coverageUncovered:AC-001"
+  ],
+  "targetFacts": [
+    "outsideScope:src/billing/invoice.ts"
+  ],
+  "note": "coverageUncovered:AC-001 is a structural side-effect of having no review packet (hasReviewPacket:false makes every in-scope AC read uncovered); it is declared because the gate really surfaces it, but targetFacts isolates the fact this case was designed to exercise for per-category recall."
+}

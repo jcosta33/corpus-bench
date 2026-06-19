@@ -1,0 +1,21 @@
+{
+  "name": "swarm-bench",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Measures the Swarm review gate's recall + effective-false-positive rate through the public `swarm review --json` contract. Never imports swarm-cli's Core (the ADR-0085 posture).",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "swarm-bench": "src/runner.mjs"
+  },
+  "scripts": {
+    "bench": "node src/runner.mjs",
+    "bench:synthetic": "node src/runner.mjs"
+  },
+  "swarmBench": {
+    "swarmBin": "../swarm-cli/bin/swarm.js",
+    "effectiveFpCeiling": 0.10
+  }
+}

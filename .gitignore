@@ -1,0 +1,4 @@
+node_modules/
+.bench-work/
+*.log
+.DS_Store

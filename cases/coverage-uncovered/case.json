@@ -1,0 +1,14 @@
+{
+  "category": "coverageUncovered",
+  "failureModeSource": "MAST: verification (~21.3%) — in-scope requirements have no review-packet coverage row (C012 uncovered); the run finished with no packet recording how each AC was verified. The change set itself is otherwise clean (claimed, in scope, no protected file), so the coverage gap is the only fact.",
+  "slug": "report",
+  "taskStem": "report-export",
+  "spec": "---\ntype: spec\nid: SPEC-report\ntitle: Report export\nstatus: ready\nowner: Bench\nsources:\n  - self\n---\n\n# Report export\n\n## Intent\n\nExport a report to CSV and JSON.\n\n## Non-goals\n\n- Not PDF.\n\n## Requirements\n\n### AC-001 — exports CSV\n\nWhen asked for CSV, the exporter must emit valid CSV.\n\nVerify with: `npm test -- export-csv`\n\n### AC-002 — exports JSON\n\nWhen asked for JSON, the exporter must emit valid JSON.\n\nVerify with: `npm test -- export-json`\n\n## Open questions\n\n- None (non-blocking).\n\n## Affected areas\n\n- `src/report/export.ts`\n",
+  "task": "---\ntype: task\nid: TASK-report-export\nsource:\n  - SPEC-report\nscope: [AC-001, AC-002]\nstatus: ready\n---\n\n# Task: Report export\n\n## Source\n\n- Spec: `specs/report/spec.md` (SPEC-report)\n\n## Scope\n\nImplement or preserve:\n\n- AC-001 — exports CSV\n- AC-002 — exports JSON\n\n## Do not change\n\n- `src/report/config.ts`\n\n## Affected areas\n\n- `src/report/export.ts`\n\n## Verify\n\n- [ ] `npm test -- export-csv` (AC-001)\n- [ ] `npm test -- export-json` (AC-002)\n\n## Agent instructions\n\n1. Read the spec.\n\n## Run summary\n\n- Changed files: `src/report/export.ts`\n- Verify results: npm test passed\n- Out-of-scope edits: none\n- Blocked questions: none\n",
+  "baseFiles": {
+    "src/report/export.ts": "// export placeholder\n"
+  },
+  "changeSet": {
+    "src/report/export.ts": "// real csv + json exporter\n"
+  }
+}

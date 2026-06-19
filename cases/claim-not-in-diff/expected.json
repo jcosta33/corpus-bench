@@ -1,0 +1,12 @@
+{
+  "category": "claimedNotInDiff",
+  "description": "Run summary claims src/cache/lru.ts (and src/cache/store.ts), but only store.ts actually changed. lru.ts is claimed but not in the diff — the reconcile catches the fabricated claim.",
+  "expectedFacts": [
+    "claimedNotInDiff:src/cache/lru.ts",
+    "coverageUncovered:AC-001"
+  ],
+  "targetFacts": [
+    "claimedNotInDiff:src/cache/lru.ts"
+  ],
+  "note": "coverageUncovered:AC-001 is the no-packet structural side-effect. targetFacts isolates the claim-mismatch signal."
+}

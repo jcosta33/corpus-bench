@@ -1,0 +1,17 @@
+{
+  "category": "outsideScope",
+  "failureModeSource": "MAST: system-design & specification (~41.8%) — agent edits a file the spec's Affected areas did not declare (scope drift / off-spec change).",
+  "slug": "auth",
+  "taskStem": "auth-token",
+  "spec": "---\ntype: spec\nid: SPEC-auth\ntitle: Auth token refresh\nstatus: ready\nowner: Bench\nsources:\n  - self\n---\n\n# Auth token refresh\n\n## Intent\n\nRefresh the auth token before it expires.\n\n## Non-goals\n\n- Not session storage.\n\n## Requirements\n\n### AC-001 — refreshes before expiry\n\nWhen the token is within the refresh window, the client must request a new token.\n\nVerify with: `npm test -- auth`\n\n## Open questions\n\n- None (non-blocking).\n\n## Affected areas\n\n- `src/auth/token.ts`\n",
+  "task": "---\ntype: task\nid: TASK-auth-token\nsource:\n  - SPEC-auth\nscope: [AC-001]\nstatus: ready\n---\n\n# Task: Auth token refresh\n\n## Source\n\n- Spec: `specs/auth/spec.md` (SPEC-auth)\n\n## Scope\n\nImplement or preserve:\n\n- AC-001 — refreshes before expiry\n\n## Do not change\n\n- `src/auth/config.ts`\n\n## Affected areas\n\n- `src/auth/token.ts`\n\n## Verify\n\n- [ ] `npm test -- auth` (AC-001)\n\n## Agent instructions\n\n1. Read the spec.\n\n## Run summary\n\n- Changed files: `src/auth/token.ts`, `src/billing/invoice.ts`\n- Verify results: npm test -- auth passed\n- Out-of-scope edits: none\n- Blocked questions: none\n",
+  "baseFiles": {
+    "src/auth/token.ts": "// token placeholder\n",
+    "src/auth/config.ts": "// auth config\n",
+    "src/billing/invoice.ts": "// invoice placeholder\n"
+  },
+  "changeSet": {
+    "src/auth/token.ts": "// real token refresh impl\n",
+    "src/billing/invoice.ts": "// rogue out-of-scope edit\n"
+  }
+}

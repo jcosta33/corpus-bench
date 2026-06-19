@@ -1,0 +1,16 @@
+{
+  "category": "doNotChangeTouched",
+  "failureModeSource": "MAST: verification (~21.3%) — agent touched a file the task packet explicitly marked `## Do not change` (C014, ADR-0086); a protected-region violation the diff must catch.",
+  "slug": "parser",
+  "taskStem": "parser-tokenize",
+  "spec": "---\ntype: spec\nid: SPEC-parser\ntitle: Tokenizer fast path\nstatus: ready\nowner: Bench\nsources:\n  - self\n---\n\n# Tokenizer fast path\n\n## Intent\n\nAdd a fast path to the tokenizer.\n\n## Non-goals\n\n- Not the grammar.\n\n## Requirements\n\n### AC-001 — fast path for ASCII\n\nWhen input is ASCII-only, the tokenizer must use the fast path.\n\nVerify with: `npm test -- tokenize`\n\n## Open questions\n\n- None (non-blocking).\n\n## Affected areas\n\n- `src/parser/tokenize.ts`\n- `src/parser/grammar.ts`\n",
+  "task": "---\ntype: task\nid: TASK-parser-tokenize\nsource:\n  - SPEC-parser\nscope: [AC-001]\nstatus: ready\n---\n\n# Task: Tokenizer fast path\n\n## Source\n\n- Spec: `specs/parser/spec.md` (SPEC-parser)\n\n## Scope\n\nImplement or preserve:\n\n- AC-001 — fast path for ASCII\n\n## Do not change\n\n- `src/parser/grammar.ts`\n\n## Affected areas\n\n- `src/parser/tokenize.ts`\n- `src/parser/grammar.ts`\n\n## Verify\n\n- [ ] `npm test -- tokenize` (AC-001)\n\n## Agent instructions\n\n1. Read the spec.\n\n## Run summary\n\n- Changed files: `src/parser/tokenize.ts`, `src/parser/grammar.ts`\n- Verify results: npm test -- tokenize passed\n- Out-of-scope edits: none\n- Blocked questions: none\n",
+  "baseFiles": {
+    "src/parser/tokenize.ts": "// tokenize placeholder\n",
+    "src/parser/grammar.ts": "// grammar — frozen\n"
+  },
+  "changeSet": {
+    "src/parser/tokenize.ts": "// real fast-path tokenizer\n",
+    "src/parser/grammar.ts": "// edited the frozen grammar (forbidden)\n"
+  }
+}

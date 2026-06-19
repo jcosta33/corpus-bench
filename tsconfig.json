@@ -1,0 +1,18 @@
+{
+  "//": "Editor/type-check config only — swarm-bench ships runnable .mjs (Node 22 native ESM), no build step. `npx tsc --noEmit` type-checks the JS via checkJs.",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2022"]
+  },
+  "include": ["src/**/*.mjs"],
+  "exclude": ["node_modules", ".bench-work"]
+}

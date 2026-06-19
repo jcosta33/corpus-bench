@@ -1,0 +1,12 @@
+{
+  "category": "doNotChangeTouched",
+  "description": "Agent committed an edit to src/parser/grammar.ts, a file the task marked `## Do not change` (C014, ADR-0086). The file is inside Affected areas and claimed, so only the protected-touch fact fires for it.",
+  "expectedFacts": [
+    "coverageUncovered:AC-001",
+    "doNotChangeTouched:src/parser/grammar.ts"
+  ],
+  "targetFacts": [
+    "doNotChangeTouched:src/parser/grammar.ts"
+  ],
+  "note": "coverageUncovered:AC-001 is the no-packet structural side-effect (hasReviewPacket:false). targetFacts isolates the C014 signal."
+}

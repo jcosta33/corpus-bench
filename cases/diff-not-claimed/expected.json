@@ -1,0 +1,12 @@
+{
+  "category": "inDiffNotClaimed",
+  "description": "Agent changed src/router/params.ts but never listed it in the Run summary (only src/router/match.ts was claimed). Both files are inside Affected areas, so params.ts surfaces as an undisclosed change (in diff, not claimed) — not as outsideScope.",
+  "expectedFacts": [
+    "coverageUncovered:AC-001",
+    "inDiffNotClaimed:src/router/params.ts"
+  ],
+  "targetFacts": [
+    "inDiffNotClaimed:src/router/params.ts"
+  ],
+  "note": "coverageUncovered:AC-001 is the no-packet structural side-effect. targetFacts isolates the undisclosed-change signal."
+}

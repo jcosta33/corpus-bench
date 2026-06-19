@@ -1,0 +1,13 @@
+{
+  "category": "coverageUncovered",
+  "description": "Two in-scope ACs (AC-001, AC-002) and no review packet, so each AC reads uncovered (C012). The change set is otherwise clean (claimed, in scope, no protected file), so the coverage gap is the ONLY thing the gate surfaces — coverage is fully isolated here.",
+  "expectedFacts": [
+    "coverageUncovered:AC-001",
+    "coverageUncovered:AC-002"
+  ],
+  "targetFacts": [
+    "coverageUncovered:AC-001",
+    "coverageUncovered:AC-002"
+  ],
+  "note": "Both uncovered rows ARE the target signal for this category — unlike other seeded cases, the coverage facts here are the point, not a side-effect."
+}
