@@ -38,17 +38,19 @@ On start it announces what it's bound to:
 corpus-mcp: ready (workspace=/…/04-cli, corpus=/…/corpus-cli/bin/corpus.js)
 ```
 
-### 2. What the agent can ask — 10 read/reconcile tools
+### 2. What the agent can ask — 12 tools (8 read · 1 reconcile · 3 safe-write)
 
 ```
-=== listTools (10 tools) ===
-  corpus_get_status        corpus_check_workspace   corpus_check_file
-  corpus_scan_task         corpus_reconcile_review  corpus_validate_review_packet
-  corpus_get_task          corpus_get_spec          corpus_get_review
-  corpus_get_checks
+=== listTools (12 tools) ===
+  corpus_get_status        corpus_list              corpus_check_workspace
+  corpus_check_file        corpus_get_task          corpus_get_spec
+  corpus_get_review        corpus_get_checks        corpus_reconcile
+  corpus_scaffold_spec     corpus_split_task        corpus_scaffold_finding
 ```
 
-Every tool is read-only or reconcile-only. None writes; none returns a Pass/Fail.
+The read and reconcile tools never write; the three safe-write tools (`corpus_scaffold_spec`,
+`corpus_split_task`, `corpus_scaffold_finding`) only scaffold a fresh artifact — they write no
+board, no review result, and overwrite nothing. None returns a Pass/Fail.
 
 ### 3. "What's on the board?" — `corpus_get_status`
 
@@ -118,5 +120,5 @@ for CLI-created tasks, which a written-from-imagination walkthrough would have s
 ## To make this a real demo (Phase 2 seed)
 
 Wire the real `corpus-mcp` into a Claude Desktop/Cursor config against a real `checkout-discount` workspace,
-and record an actual agent session that calls `corpus_get_task` / `corpus_reconcile_review` mid-task — after
+and record an actual agent session that calls `corpus_get_task` / `corpus_reconcile` mid-task — after
 the `get_task` prefix bug (gap #1) is fixed, so the demo shows the intended happy path.
